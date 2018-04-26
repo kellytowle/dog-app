@@ -70,14 +70,14 @@ class BreedApp extends Component {
     render() {
         return (
             <main>
-                <section data-view="list">
+                <section data-view="list" data-is-active={this.state.activeView === "list"}>
                     <BreedList
                         breedOptions={this.state.breedOptions}
                         selectBreed={this.chooseBreed.bind(this)}
                     />
                     <button>View Selected Breed</button>
                 </section>
-                <section data-view="breed">
+                <section data-view="breed" data-is-active={this.state.activeView === "photo"}>
                     <DogBreed breedKey={this.state.selectedBreed}/>
                 </section>
             </main>

@@ -1,11 +1,21 @@
+main {
+    display:flex;
+}
+
+section[data-view] {
+    width: 10vw;
+    height: 100vh;
+    position: relative;
+}
+
+section[data-is-active="true"] {
+    width: 90vw;
+}
 
 [data-view="breed"] img {
     border-radius: 12px;
     border: 1px solid rgba(0,0,0,.3);
     box-shadow: 0 4px 12px rgba(0,0,0,.55);
-    max-width: 50vmin;
-    max-height: 50vmin;
-    position: absolute;
-    left: 50vw;
-    margin-left: -25vw;
+    max-width: 100%;
+    max-height: 100%;
 }
