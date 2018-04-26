@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './BreedApp/BreedApp.css';
 // import App from './_boilerplate/App';
 import registerServiceWorker from './registerServiceWorker';
-import BreedList from "./BreedList/BreedList";
+import BreedApp from "./BreedApp/BreedApp";
 
-ReactDOM.render(<BreedList />, document.getElementById('root'));
+ReactDOM.render(<BreedApp />, document.getElementById('root'));
 registerServiceWorker();
