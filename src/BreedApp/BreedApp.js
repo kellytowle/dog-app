@@ -7,7 +7,6 @@ import DogBreed from "../DogBreed/DogBreed";
 class BreedApp extends Component {
     state = {
         breedsJSON: null,
-        breedOptions: [],
         selectedBreed: "",
         activeView: "list"
     }
@@ -61,7 +60,7 @@ class BreedApp extends Component {
 };
 
 BreedApp.stateTypes = {
-    breedsList: PropTypes.array.isRequired,
+    breedsJSON: PropTypes.object.isRequired,
     selectedBreed: PropTypes.string.isRequired,
     activeView: PropTypes.oneOf(["list","photo"])
 };
