@@ -5,6 +5,10 @@
     font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 }
 
+html, body, main {
+    overflow:hidden;
+}
+
 h1 {
     font-size:10vmin;
     text-align: center;
