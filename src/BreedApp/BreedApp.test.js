@@ -1,10 +1,11 @@
+jest.mock('../fetch');
+
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
 import BreedApp from './BreedApp';
 import BreedList from '../BreedList/BreedList';
 import DogBreed from "../DogBreed/DogBreed";
-
-jest.mock('../fetch');
+import fetchJSON from '../fetch'
 
 let tree, testInstance, json, renderedNode;
 
@@ -43,9 +44,6 @@ describe("<BreedApp />", () => {
             })
 
             it('has attribute of `data-is-active` with default value of `true`', () => {
-                console.log("json: ", json);
-                console.log("json.props: ", json.props);
-                console.log("json.props[\"data-is-active\"]: ", json.props["data-is-active"]);
                 expect(Object.keys(json.props).findIndex(prop => prop === "data-is-active")).toBeGreaterThan(-1);
                 expect(json.props["data-is-active"]).toBe(true);
             })
@@ -93,7 +91,24 @@ describe("<BreedApp />", () => {
         })
     });
 
-    describe("Component state", () => {
+    describe("Component behavior", () => {
 
+        beforeEach(function() {
+            fetchJSON.mockClear();
+        });
+
+        it("Calls fetch.fetchJSON() once for the list of dog breeds", () => {
+            tree = TestRenderer.create(<BreedApp />);
+            expect(fetchJSON.mock.calls.length).toBe(1);
+        })
+
+        it("sets result of fetch call to state property `breedsJSON`", () => {
+            tree = TestRenderer.create(<BreedApp />);
+            testInstance = tree.toTree().instance;
+            fetchJSON().then(data => {
+                const fetchedJSON = data.message;
+                expect(fetchedJSON).toEqual(testInstance.state.breedsJSON);
+            });
+        })
     })
 });

@@ -1,11 +1,11 @@
-export default function fetchJSON(url) {
-    return new Promise((resolve, reject) => {
-        resolve({
-            message: {
-                "a": [],
-                "b": [],
-                "c": []
-            }
-        })
+export default jest.fn(() => {
+        return new Promise((resolve, reject) => {
+            resolve({
+                message: {
+                    "a": [],
+                    "b": [],
+                    "c": []
+                }
+            })
     });
-}
+});

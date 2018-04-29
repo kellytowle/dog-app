@@ -7,6 +7,9 @@
 
 html, body, main {
     overflow:hidden;
+    background-image: url("../paws.png"), radial-gradient(ellipse at center, #cedce7 0%,#596a72 100%);
+    width:100vw;
+    height:100vh;
 }
 
 h1 {
@@ -34,6 +37,11 @@ li {
 
 li:nth-child(2n+0) {
     background-color:rgba(128,128,128,.5);
+}
+
+li.selected {
+    background-color: rgba(56, 2, 59, .75);
+    color: white;
 }
 
 main {
@@ -105,23 +113,14 @@ section[data-view] {
     height: 100vh;
     position: absolute;
     transition-duration: .3s;
-    transition-timing-function: ease-in;
+    transition-timing-function: ease-in-out;
     justify-content: center;
     display: flex;
     flex-direction: column;
     align-items: center;
     overflow: hidden;
     z-index:1;
-    background-image: url("../paws.png"), radial-gradient(ellipse at center, #cedce7 0%,#596a72 100%);
-
-}
-
-section[data-view="list"] {
-    background-color: rgba(0, 101, 162, 0.56);
-}
-
-section[data-view="breed"] {
-    background-color: rgba(85, 0, 128, 0.48);
+    background:transparent none;
 }
 
 section[data-is-active="true"] {
@@ -135,22 +134,17 @@ section[data-is-active="true"] {
     }
 
     section[data-view] {
-        transition-property: left;
+        transition-property: opacity;
     }
 
-    [data-view="list"] {
-        left:-100vw;
+    [data-view] {
+        opacity:0;
     }
 
-    [data-view="list"][data-is-active="true"],
-    [data-view="breed"][data-is-active="true"] {
-        left:0vw;
+    [data-is-active="true"] {
+        opacity:1;
+        transition-delay: .3s;
     }
-
-    [data-view="breed"] {
-        left:100vw;
-    }
-
 }
 @media screen and (orientation: portrait) {
     main {

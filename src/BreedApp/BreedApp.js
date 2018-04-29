@@ -28,7 +28,6 @@ class BreedApp extends Component {
     }
 
     chooseBreed(event) {
-        console.log("Chose breed event in BreedApp component: %o", event.target.value);
         if(event.target.attributes["data-breed-key"].value !== "--") {
             this.setState({
                 selectedBreed: event.target.attributes["data-breed-key"].value,
@@ -44,7 +43,8 @@ class BreedApp extends Component {
                     <h1>Dog Gallery</h1>
                     <BreedList
                         breedsJSON={this.state.breedsJSON}
-                        selectBreed={this.chooseBreed.bind(this)}
+                        selectedBreed={this.state.selectedBreed}
+                        chooseBreed={this.chooseBreed.bind(this)}
                     />
                 </section>
                 <section data-view="breed" data-is-active={this.state.activeView === "photo"}>
