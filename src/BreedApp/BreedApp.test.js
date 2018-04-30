@@ -11,6 +11,12 @@ let tree, testInstance, json, renderedNode;
 
 describe("<BreedApp />", () => {
 
+    it('is a stateful, instantiated component', () => {
+        tree = TestRenderer.create(<BreedApp />);
+        testInstance = tree.root;
+        expect(tree.toTree().instance.state).toBeDefined();
+    });
+
     describe("DOM structure", () => {
         beforeEach(function() {
             tree = TestRenderer.create(<BreedApp />);
@@ -97,18 +103,36 @@ describe("<BreedApp />", () => {
             fetchJSON.mockClear();
         });
 
-        it("Calls fetch.fetchJSON() once for the list of dog breeds", () => {
-            tree = TestRenderer.create(<BreedApp />);
-            expect(fetchJSON.mock.calls.length).toBe(1);
+        describe("fetchJSON(url) method", () => {
+            it("is called once for the list of dog breeds", () => {
+                tree = TestRenderer.create(<BreedApp />);
+                expect(fetchJSON.mock.calls.length).toBe(1);
+            })
+
+            it("sets result of fetch call to state property `breedsJSON`", () => {
+                tree = TestRenderer.create(<BreedApp />);
+                testInstance = tree.toTree().instance;
+                fetchJSON().then(data => {
+                    const fetchedJSON = data.message;
+                    expect(fetchedJSON).toEqual(testInstance.state.breedsJSON);
+                });
+            })
         })
 
-        it("sets result of fetch call to state property `breedsJSON`", () => {
-            tree = TestRenderer.create(<BreedApp />);
-            testInstance = tree.toTree().instance;
-            fetchJSON().then(data => {
-                const fetchedJSON = data.message;
-                expect(fetchedJSON).toEqual(testInstance.state.breedsJSON);
+        describe("chooseBreed(event) method", () => {
+            it("is provided as a prop called `chooseBreed` on <BreedsList />", () => {
+                let appClassInstance = new BreedApp(),
+                    mainElement = tree.toTree().rendered,
+                    firstSection = mainElement.rendered[0],
+                    breedsListComponent = firstSection.rendered[1];
+
+                // Compare stringified functions
+                expect(
+                    breedsListComponent.props.chooseBreed.toString())
+                    .toEqual(appClassInstance.chooseBreed.bind(appClassInstance).toString()
+                );
             });
         })
+
     })
 });
