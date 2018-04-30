@@ -7,8 +7,15 @@ const BreedList = (props) => {
         const createItem = (breed, parentBreed, depth=0) => {
             const formattedBreedName = `${breed.substr(0,1).toUpperCase()}${breed.substr(1)}`,
                 breedKey = parentBreed ? `${parentBreed}-${breed}` : breed, // TODO: This breedKey maps to the API calls
-                uiLabel = formattedBreedName.padStart((2 * depth) + formattedBreedName.length, "-"),
-                className = breed === props.selectedBreed ? "selected" : "";
+                uiLabel = formattedBreedName.padStart((2 * depth) + formattedBreedName.length, "-");
+
+            let className = "";
+
+            if(!parentBreed && breed === props.selectedBreed) {
+                className = "selected";
+            } else if (`${parentBreed}-${breed}` === props.selectedBreed) {
+                className = "selected";
+            }
 
             returnArr.push(<li key={breedKey} data-breed-key={breedKey} className={className} onClick={props.chooseBreed}>{uiLabel}</li>);
 
