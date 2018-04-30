@@ -58,7 +58,7 @@ After cloning this repository you will need to ensure that you have NPM
 and Node.js installed locally, and then run `npm i` in the root directory
 of the cloned repository
 
-## [Commands]
+## Commands
 ### `npm start`
 
 Runs the app in the development mode.<br>
