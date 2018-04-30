@@ -133,7 +133,7 @@ and `<BreedsList />` components.
 
 The primary focus of the tests, both present and continued, should focus on:
 
-* **Component props** - testing the affects, if any, that different `props`
+* **Component props** - testing the effects, if any, that different `props`
 values have on the rendered component
 * **Component type** - testing whether the component is a functional component
 or manages state
