@@ -58,8 +58,8 @@ After cloning this repository you will need to ensure that you have NPM
 and Node.js installed locally, and then run `npm i` in the root directory
 of the cloned repository
 
-## Commands
-### `npm start`
+### Commands
+#### `npm start`
 
 Runs the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
@@ -67,14 +67,14 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.<br>
 You will also see any lint errors in the console.
 
-### `npm test`
+#### `npm test`
 
 Launches the test runner in the interactive watch mode.<br>
 
 Additionally, I have checked in a run configuration for use in JetBrains
 IDEs (WebStorm, PhpStorm, IntelliJ, etc.) located [here](https://github.com/kellytowle/dog-app/tree/master/.idea/runConfigurations/Jest.xml)
 
-### `npm run build`
+#### `npm run build`
 
 Builds the app for production to the `build` folder.<br>
 It correctly bundles React in production mode and optimizes the build for
