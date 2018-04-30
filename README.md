@@ -111,7 +111,7 @@ of breeds that was fetched to populate the `<BreedList />` component.
 modules should be carefully considered (cost vs. benefit) before being
 added to the project.
 
-* **Testing as much as is possible/reasonable** - While working on the
+* **Test as much as is possible/reasonable** - While working on the
 tests for this project I noticed some differing opinions about the
 validity of testing a component's `state`; the most convincing criticism
 I encountered was someone pointing out that the internal mechanisms
@@ -137,8 +137,8 @@ The primary focus of the tests, both present and continued, should focus on:
 values have on the rendered component
 * **Component type** - testing whether the component is a functional component
 or manages state
-* **Component interfaces** - testing areas where a parent's `state` property
-becomes a child component's `prop` value
+* **Component interfaces** - testing areas where a parent's `state` or `prop`
+property is passed to a child component as a `prop` value
 * **State** - testing where, when, and to what effect that `state` properties
 are set (either internally or external to the module being tested)
 * **DOM structure** - While perhaps not _imperative_, testing the presumed
