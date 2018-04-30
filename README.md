@@ -71,7 +71,7 @@ You will also see any lint errors in the console.
 
 Launches the test runner in the interactive watch mode.<br>
 
-Additionally, I have checked in a run configuration for use in JetBrains
+Alternatively, I have checked in a run configuration for use in JetBrains
 IDEs (WebStorm, PhpStorm, IntelliJ, etc.) located [here](https://github.com/kellytowle/dog-app/tree/master/.idea/runConfigurations/Jest.xml)
 
 #### `npm run build`
